@@ -7,6 +7,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
+// Conflation Algorithm
+
 public class Conflation {
     public static void main(String[] args) throws IOException {
         try {
