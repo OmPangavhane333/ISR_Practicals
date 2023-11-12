@@ -1,6 +1,8 @@
 import java.io.*;
 import java.util.*;
 
+//Single_Pass -Algorithm
+
 public class Practical2 {
 
     public static void main(String[] args) {
