@@ -1,0 +1,54 @@
+Input :
+/////////////////////////////////////////////////////////////////
+import requests
+
+def get_weather(city, api_key):
+    # Define the API endpoint and parameters
+    base_url = 'http://api.openweathermap.org/data/2.5/weather'
+    params = {
+        'q': city,
+        'appid': api_key,
+        'units': 'metric'  # You can change to 'imperial' for Fahrenheit
+    }
+
+    try:
+        # Make the API request
+        response = requests.get(base_url, params=params)
+        data = response.json()
+
+        # Check if the request was successful (status code 200)
+        if response.status_code == 200:
+            # Extract weather information
+            temperature = data['main']['temp']
+            wind_speed = data['wind']['speed']
+            weather_description = data['weather'][0]['description']
+            weather_main = data['weather'][0]['main']
+
+            # Print the weather report
+            print(f'Weather in {city}:')
+            print(f'Temperature: {temperature}°C')
+            print(f'Wind Speed: {wind_speed} m/s')
+            print(f'Description: {weather_description}')
+            print(f'Weather: {weather_main}')
+        else:
+            print('Failed to retrieve weather data.')
+    except Exception as e:
+        print(f'An error occurred: {str(e)}')
+
+if __name__ == "__main__":
+    api_key = '94e0a2e89d06bddf3770c1a4d30187e8'  # Replace with your OpenWeatherMap API key
+    city = input('Enter the city name: ')
+    get_weather(city, api_key)
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+Output :
+
+///////////////////////////
+
+Enter the city name: nashik
+Weather in nashik:
+Temperature: 22.53°C
+Wind Speed: 3.18 m/s
+Description: broken clouds
+Weather: Clouds
